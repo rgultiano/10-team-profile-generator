@@ -1,4 +1,6 @@
+const fs = require('fs');
 const inquirer = require('inquirer');
+
 const Employee = require('./lib/Employee');
 const Engineer = require('./lib/Engineer');
 const Manager = require('./lib/Manager');
@@ -27,12 +29,50 @@ async function init(){
     }
 
     //generate HTML from employee list
-    generateHtml(employeeList);
+    writeToFile('./dist/',generateHtml(employeeList));
 }
 
+//function to write to file
+function writeToFile(fileName, data) {
+    console.log(data);
+    fs.writeFile(fileName, data, function(err, result) {
+        if(err) console.log('error', err);
+      });
+}
+
+// function to generate html string
 function generateHtml(employees){
     //TO DO: Generate the HTML
-    let html = ``
+    let employee_html_snippet = '';
+    //generate html snippets for all employeets
+    employees.forEach(employee=>{
+        let role = employee.getRole();
+        employee_html_snippet += `
+            <div>
+                <h2>${employee.getName()}<h2>
+                <ul>
+                    <li>ID: ${employee.getId()}</li>
+                    <li>Email: <a href="mail-to:${employee.getEmail()}">${employee.getEmail()}</a></li>
+                    ${(role == 'Manager' ? `<li>Office number: ${employee.getOfficeNumber()}</li>` :'')}
+                    ${(role == 'Engineer' ? `<li>Github: <a href="https://github.com/${employee.getGithub()}>${employee.getGithub()}</a></li>` :'')}
+                    ${(role == 'Intern' ? `<li>School: ${employee.getSchool()}</li>` :'')}
+                </ul>
+            </div>
+`
+    })
+
+    // gnereate html body
+    let html = `
+<html>
+    <head>
+    </head>
+    <body>
+        <h1>MyTeam<h1>
+        <section>
+            ${employee_html_snippet}
+        </section>
+    </body>
+</html>`
 
     return html;
 }
