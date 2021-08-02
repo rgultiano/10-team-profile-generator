@@ -11,7 +11,7 @@
 ## General Info
 A Node.js command-line application that takes in information about employees on a software engineering team, then generates an HTML webpage that displays summaries for each person.
 
-A sample page of this can be found on Github pages here: https://rgultiano.github.io/06-team-profile-generator/output.html
+A sample page of this can be found on Github pages here: https://rgultiano.github.io/10-team-profile-generator/dist/output.html
 
 ## Recording
 Recording of the generator working can be found here: https://drive.google.com/file/d/1wmhW9vrPY2ktXptgQJ7QpCNP_-0U99XZ/view
