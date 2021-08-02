@@ -52,7 +52,10 @@ function generateHtml(employees){
         let role = employee.getRole();
         employee_html_snippet += `
             <div class="employee">
-                <h2>${employee.getName()}</h2>
+                <div class="employee-header">
+                    <h2>${employee.getName()}</h2>
+                    <h3>${role}</h3>
+                </div>
                 <ul>
                     <li><span class="prop">ID:</span> ${employee.getId()}</li>
                     <li><span class="prop">Email:</span> <a href="mailto:${employee.getEmail()}">${employee.getEmail()}</a></li>
@@ -83,11 +86,15 @@ function generateHtml(employees){
 function generateCSS(){
     return `body{
     background-color: lightblue;
+    margin: 0;
 }
 
 h1{
     text-align: center;
-    background-color: orange;
+    background-color: darkred;
+    color: white;
+    padding-bottom: .5em;
+    padding-top: .5em;
 }
 .employees{
     display: flex;
@@ -97,21 +104,42 @@ h1{
 }
 
 .employee {
-    background-color: white;
     flex: 0 0 30%;
     margin-bottom: 1em;
     border: 1px solid black;
+    border-radius: .5em;
+    box-shadow: 3px 2px grey;
+    background-color: rgb(245, 241, 241);
 }
 
-.employee h2{
+.employee h2,h3{
+    margin: 0;
+}
+
+.employee-header{
     text-align: center;
     border-bottom: 1px solid black;
-    margin: 0;
-    background-color: lightgrey;
+    background-color: blue;
+    color:white;
 }
 
 .employee ul{
     list-style: none;
+    padding-left: 1em;
+    padding-right: 1em;
+}
+
+.employee li{
+    padding: .1em;
+    margin: 0;
+    padding-top: .2em;
+    border: 1px solid lightgrey;
+    border-bottom: none;
+    background-color: white;
+}
+
+.employee li:last-child{
+    border-bottom: 1px solid lightgrey ;
 }
 
 .prop{
