@@ -6,6 +6,8 @@ const Engineer = require('./lib/Engineer');
 const Manager = require('./lib/Manager');
 const Intern = require('./lib/Intern');
 
+init();
+
 async function init(){
     const employeeList = [];
     // request manager details
@@ -16,20 +18,20 @@ async function init(){
     while(!finish){
         let response = await inquirer.prompt([{
             type: 'list',
-            message: 'Choose a License:',
+            message: 'Add an employee:',
             name: 'choice',
-            choices: ['Engineer', 'Intern', ['No more Employees (Finish Generation)', 'End']],
+            choices: ['Engineer', 'Intern', {value: 'End', name: 'No more Employees (Finish Generation)'}],
           }]);
         
         if(response.choice === 'End'){
                 finish = true;
         } else {
-            employeeList.push(generateEmployee(response.choice));
+            employeeList.push(await generateEmployee(response.choice));
         }
     }
 
     //generate HTML from employee list
-    writeToFile('./dist/',generateHtml(employeeList));
+    writeToFile('./dist/output.html',generateHtml(employeeList));
 }
 
 //function to write to file
@@ -84,7 +86,7 @@ async function generateEmployee(type){
         {
         type: 'input',
         message: 'Name:',
-        name: 'Name',
+        name: 'name',
         },
         {
         type: 'input',
