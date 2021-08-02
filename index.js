@@ -32,6 +32,7 @@ async function init(){
 
     //generate HTML from employee list
     writeToFile('./dist/output.html',generateHtml(employeeList));
+    writeToFile('./dist/style.css',generateCSS());
 }
 
 //function to write to file
@@ -53,11 +54,11 @@ function generateHtml(employees){
             <div class="employee">
                 <h2>${employee.getName()}</h2>
                 <ul>
-                    <li>ID: ${employee.getId()}</li>
-                    <li>Email: <a href="mailto:${employee.getEmail()}">${employee.getEmail()}</a></li>
-                    ${(role == 'Manager' ? `<li>Office number: ${employee.getOfficeNumber()}</li>` :'')}
-                    ${(role == 'Engineer' ? `<li>Github: <a href="https://github.com/${employee.getGithub()}">${employee.getGithub()}</a></li>` :'')}
-                    ${(role == 'Intern' ? `<li>School: ${employee.getSchool()}</li>` :'')}
+                    <li><span class="prop">ID:</span> ${employee.getId()}</li>
+                    <li><span class="prop">Email:</span> <a href="mailto:${employee.getEmail()}">${employee.getEmail()}</a></li>
+                    ${(role == 'Manager' ? `<li><span class="prop">Office number:</span> ${employee.getOfficeNumber()}</li>` :'')}
+                    ${(role == 'Engineer' ? `<li><span class="prop">Github:</span> <a href="https://github.com/${employee.getGithub()}">${employee.getGithub()}</a></li>` :'')}
+                    ${(role == 'Intern' ? `<li><span class="prop">School:</span> ${employee.getSchool()}</li>` :'')}
                 </ul>
             </div>`
     })
@@ -66,16 +67,56 @@ function generateHtml(employees){
     let html = `
 <html>
     <head>
+        <link rel="stylesheet" href="style.css">
     </head>
     <body>
-        <h1>MyTeam</h1>
-        <section>
+        <h1>My Team</h1>
+        <section class="employees">
             ${employee_html_snippet}
         </section>
     </body>
 </html>`
 
     return html;
+}
+
+function generateCSS(){
+    return `body{
+    background-color: lightblue;
+}
+
+h1{
+    text-align: center;
+    background-color: orange;
+}
+.employees{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-evenly;
+    flex-wrap: wrap;
+}
+
+.employee {
+    background-color: white;
+    flex: 0 0 30%;
+    margin-bottom: 1em;
+    border: 1px solid black;
+}
+
+.employee h2{
+    text-align: center;
+    border-bottom: 1px solid black;
+    margin: 0;
+    background-color: lightgrey;
+}
+
+.employee ul{
+    list-style: none;
+}
+
+.prop{
+    font-weight: bold;
+}`;
 }
 
 async function generateEmployee(type){
