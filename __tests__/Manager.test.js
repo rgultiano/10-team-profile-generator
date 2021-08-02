@@ -1,4 +1,6 @@
 
+const Employee = require('../lib/Manager');
+
 describe("Manager", () => {
     describe("Initialization", () => {
       it("should create a object with a 'name' property set to the 'name' argument provided when called with the 'new' keyword", () => {
