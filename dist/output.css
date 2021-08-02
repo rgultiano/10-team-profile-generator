@@ -1,0 +1,27 @@
+body{
+    background-color: lightblue;
+}
+h1{
+    text-align: center;
+    background-color: orange;
+}
+.employees{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-evenly;
+    flex-wrap: wrap;
+}
+
+.employee {
+    background-color: white;
+    flex: 0 0 30%;
+    margin-bottom: 1em;
+    border: 1px solid black;
+}
+
+.employee h2{
+    text-align: center;
+    border-bottom: 1px solid black;
+    margin: 0;
+    background-color: lightgrey;
+}

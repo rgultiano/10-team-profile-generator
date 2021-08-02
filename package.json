@@ -12,6 +12,7 @@
     "lib": "lib"
   },
   "scripts": {
+    "start": "node index.js",
     "test": "jest"
   },
   "repository": {
