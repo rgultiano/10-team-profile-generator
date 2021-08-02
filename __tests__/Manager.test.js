@@ -64,8 +64,9 @@ describe("Manager", () => {
         const e_name = 'test name';
         const e_id = 'test1234abc';
         const e_email = 'test@email.com';
+        const e_officeNumber = '1234546';
         
-        const obj = new Manager(e_name, e_id, e_email);
+        const obj = new Manager(e_name, e_id, e_email, e_officeNumber);
 
         expect(obj.getId).toEqual(e_id);
       });
@@ -74,18 +75,31 @@ describe("Manager", () => {
         const e_name = 'test name';
         const e_id = 'test1234abc';
         const e_email = 'test@email.com';
+        const e_officeNumber = '1234546';
         
-        const obj = new Manager(e_name, e_id, e_email);
+        const obj = new Manager(e_name, e_id, e_email, e_officeNumber);
 
         expect(obj.getEmail()).toEqual(e_email);
+      });
+        
+      it("getOfficeNumber() should return the manager OfficeNumber", () => {
+        const e_name = 'test name';
+        const e_id = 'test1234abc';
+        const e_email = 'test@email.com';
+        const e_officeNumber = '1234546';
+        
+        const obj = new Manager(e_name, e_id, e_email, e_officeNumber);
+
+        expect(obj.getOfficeNumber()).toEqual(e_officeNumber);
       });
 
       it("getRole() should return the 'Manager'", () => {
         const e_name = 'test name';
         const e_id = 'test1234abc';
         const e_email = 'test@email.com';
+        const e_officeNumber = '1234546';
         
-        const obj = new Manager(e_name, e_id, e_email);
+        const obj = new Manager(e_name, e_id, e_email, e_officeNumber);
 
         expect(obj.getRole()).toEqual('Manager');
       });
