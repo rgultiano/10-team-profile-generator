@@ -50,17 +50,16 @@ function generateHtml(employees){
     employees.forEach(employee=>{
         let role = employee.getRole();
         employee_html_snippet += `
-            <div>
-                <h2>${employee.getName()}<h2>
+            <div class="employee">
+                <h2>${employee.getName()}</h2>
                 <ul>
                     <li>ID: ${employee.getId()}</li>
-                    <li>Email: <a href="mail-to:${employee.getEmail()}">${employee.getEmail()}</a></li>
+                    <li>Email: <a href="mailto:${employee.getEmail()}">${employee.getEmail()}</a></li>
                     ${(role == 'Manager' ? `<li>Office number: ${employee.getOfficeNumber()}</li>` :'')}
-                    ${(role == 'Engineer' ? `<li>Github: <a href="https://github.com/${employee.getGithub()}>${employee.getGithub()}</a></li>` :'')}
+                    ${(role == 'Engineer' ? `<li>Github: <a href="https://github.com/${employee.getGithub()}">${employee.getGithub()}</a></li>` :'')}
                     ${(role == 'Intern' ? `<li>School: ${employee.getSchool()}</li>` :'')}
                 </ul>
-            </div>
-`
+            </div>`
     })
 
     // gnereate html body
@@ -69,7 +68,7 @@ function generateHtml(employees){
     <head>
     </head>
     <body>
-        <h1>MyTeam<h1>
+        <h1>MyTeam</h1>
         <section>
             ${employee_html_snippet}
         </section>
