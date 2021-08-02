@@ -1,5 +1,5 @@
 
-const Employee = require('../lib/Engineer');
+const Engineer = require('../lib/Engineer');
 
 describe("Engineer", () => {
     describe("Initialization", () => {
@@ -60,7 +60,7 @@ describe("Engineer", () => {
         expect(obj.getName()).toEqual(e_name);
       });
   
-      it("getId()() should return the Engineer Id", () => {
+      it("getId() should return the Engineer Id", () => {
         const e_name = 'test name';
         const e_id = 'test1234abc';
         const e_email = 'test@email.com';
@@ -68,7 +68,7 @@ describe("Engineer", () => {
         
         const obj = new Engineer(e_name, e_id, e_email, e_github);
 
-        expect(obj.getId).toEqual(e_id);
+        expect(obj.getId()).toEqual(e_id);
       });
   
       it("getEmail() should return the Engineer email", () => {

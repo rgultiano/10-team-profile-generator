@@ -1,5 +1,5 @@
 
-const Employee = require('../lib/Manager');
+const Manager = require('../lib/Manager.js');
 
 describe("Manager", () => {
     describe("Initialization", () => {
@@ -60,7 +60,7 @@ describe("Manager", () => {
         expect(obj.getName()).toEqual(e_name);
       });
   
-      it("getId()() should return the manager Id", () => {
+      it("getId()) should return the manager Id", () => {
         const e_name = 'test name';
         const e_id = 'test1234abc';
         const e_email = 'test@email.com';
@@ -68,7 +68,7 @@ describe("Manager", () => {
         
         const obj = new Manager(e_name, e_id, e_email, e_officeNumber);
 
-        expect(obj.getId).toEqual(e_id);
+        expect(obj.getId()).toEqual(e_id);
       });
   
       it("getEmail() should return the manager email", () => {

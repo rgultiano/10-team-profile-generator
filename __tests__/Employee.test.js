@@ -45,14 +45,14 @@ describe("Employee", () => {
         expect(obj.getName()).toEqual(e_name);
       });
   
-      it("getId()() should return the employee Id", () => {
+      it("getId() should return the employee Id", () => {
         const e_name = 'test name';
         const e_id = 'test1234abc';
         const e_email = 'test@email.com';
         
         const obj = new Employee(e_name, e_id, e_email);
 
-        expect(obj.getId).toEqual(e_id);
+        expect(obj.getId()).toEqual(e_id);
       });
   
       it("getEmail() should return the employee email", () => {
