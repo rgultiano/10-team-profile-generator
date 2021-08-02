@@ -1,5 +1,5 @@
 
-describe("Employee", () => {
+describe("Manager", () => {
     describe("Initialization", () => {
       it("should create a object with a 'name' property set to the 'name' argument provided when called with the 'new' keyword", () => {
         const e_name = 'test name';
@@ -53,7 +53,7 @@ describe("Employee", () => {
         const e_id = 'test1234abc';
         const e_email = 'test@email.com';
         
-        const obj = new Employee(e_name, e_id, e_email);
+        const obj = new Manager(e_name, e_id, e_email);
 
         expect(obj.getName()).toEqual(e_name);
       });
@@ -63,7 +63,7 @@ describe("Employee", () => {
         const e_id = 'test1234abc';
         const e_email = 'test@email.com';
         
-        const obj = new Employee(e_name, e_id, e_email);
+        const obj = new Manager(e_name, e_id, e_email);
 
         expect(obj.getId).toEqual(e_id);
       });
@@ -73,7 +73,7 @@ describe("Employee", () => {
         const e_id = 'test1234abc';
         const e_email = 'test@email.com';
         
-        const obj = new Employee(e_name, e_id, e_email);
+        const obj = new Manager(e_name, e_id, e_email);
 
         expect(obj.getEmail()).toEqual(e_email);
       });
@@ -83,7 +83,7 @@ describe("Employee", () => {
         const e_id = 'test1234abc';
         const e_email = 'test@email.com';
         
-        const obj = new Employee(e_name, e_id, e_email);
+        const obj = new Manager(e_name, e_id, e_email);
 
         expect(obj.getRole()).toEqual('Manager');
       });
